@@ -47,6 +47,15 @@ ansible dev -m file -a "path=/tmp/sunday.txt state=absent"
 ansible dev -m file -a "path=/tmp/sunday state=directory"
 ansible dev -m file -a "path=/etc/sunday.txt state=touch" -b 
 
+# install packages with yum 
+ansible dev -m yum -a "name=git state=present"      # state=present/absent/latest
+ansible dev -m yum -a "name='*' state=latest"      
+
+# command module 
+ansible dev -m shell -a "uptime"
+andible dev -m command -a "uptime"    or    ansible dev -a "uptime"
+  # command module is executed without using shell, therefore, env variables like $HOME won't be available and < , >, | , & won't work
+ansible dev -m command -a "ls > listOfFiles.txt"        vs      ansible dev -m shell -a "ls > listOfFiles.txt"
 
 
 
