@@ -6,3 +6,4 @@
 6. Larget number of predifined modules for use 
 7. You can add custom modules 
 8. Can run ad hoc commands and playbooks(group of commands/actions)
+9. Ansible is idompotent, which means if there is no change then Ansible won't apply it. 
