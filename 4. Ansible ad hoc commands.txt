@@ -1,0 +1,30 @@
+# it is one-liner ansible command that performs one task on the target host/group
+
+# it will only have two parameters, the group of a host that you want to perform the task and the Ansible module to run
+
+# module: small programs that do some work on the server
+
+# modules are the main building blocks of Ansible and are basically reusable scripts that are used by Ansible Ad-hoc and playbooks
+
+# Ansible comes with a number of reusable modules.
+
+# able to perform tasks without creating a playbook; rebooting servers, managing services, copy a file to only one host, install only one package
+
+# modules will be pushed to client nodes and run and after running they will be removew
+
+# basically, module is a python script 
+
+
+
+ansible dev -m shell -a "uptime"
+
+ansible dev -m shell -a "free -m"
+
+ansible -i inventory dev -m shell -a "uptime"
+
+ansible-doc -l | grep shell 
+
+
+/etc/ansible/ansible.cfg    >   forks : how many nodes at a time ansible executes the commands/playbooks 
+
+
