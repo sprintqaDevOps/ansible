@@ -1,3 +1,5 @@
+# AnsibleDefaultFacts 
+
 AnsibleFacts are information about client nodes like: os distribution, release, processor, python etc.
 
 The task of collecting this remote system information is called as Gathering Facts, and collected/Gathered information is called facts or variable.
@@ -8,3 +10,11 @@ ansible dev -m setup
 
 ansible dev -m setup -a "filter=ansible_distribution*"
 
+
+
+
+# AnsibleCustomFacts
+
+To get user defined required facts; git version, httpd version,  db version etc… for all client managed nodes.
+
+To identify prod/nonprod/dev/qa servers.
