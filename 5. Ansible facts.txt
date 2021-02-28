@@ -1,1 +1,10 @@
-ass
+AnsibleFacts are information about client nodes like: os distribution, release, processor, python etc.
+
+The task of collecting this remote system information is called as Gathering Facts, and collected/Gathered information is called facts or variable.
+
+You can Gather/Collect Facts using setup module in Ad-hoc commands.
+
+ansible dev -m setup 
+
+ansible dev -m setup -a "filter=ansible_distribution*"
+
