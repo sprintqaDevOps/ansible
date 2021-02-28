@@ -49,7 +49,7 @@ ansible dev -m file -a "path=/etc/sunday.txt state=touch" -b
 
 # install packages with yum 
 ansible dev -m yum -a "name=git state=present"      # state=present/absent/latest
-ansible dev -m yum -a "name='*' state=latest"      
+ansible dev -m yum -a "name=* state=latest" -b      
 
 # command module 
 ansible dev -m shell -a "uptime"
