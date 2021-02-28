@@ -58,7 +58,8 @@ andible dev -m command -a "uptime"    or    ansible dev -a "uptime"
 ansible dev -m command -a "ls > listOfFiles.txt"        vs      ansible dev -m shell -a "ls > listOfFiles.txt"
 
 
-
+# reboot hosts
+ansible all -a "reboot" -s
 
 
 
