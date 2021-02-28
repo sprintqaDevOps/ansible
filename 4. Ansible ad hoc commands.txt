@@ -32,3 +32,26 @@ forks  = 1              vs      forks = 5
 ansible all -m shell -a "sleep 5; echo 'hello world'"
 
 
+# copy module
+ansible dev -m copy -a "src=./inventory dest=/tmp/inventoryfromansibleengine"
+ansible dev -m copy -a "content='hello from ansible engine' dest=/tmp/hello.txt"
+ansible dev -m copy -a "content='another info from ansible engine' dest=/tmp/hello.txt backup=yes"
+
+# download module 
+ansible dev -m fetch -a "src=/home/userpath/hello.txt dest=./sunday/"
+ansible dev -m fetch -a "src=/home/userpath/hello2.txt dest=./sunday/{{inventory_hostname}}_hello.txt flat=yes"
+
+# create and delete file/directory 
+ansible dev -m file -a "path=/tmp/sunday.txt state=touch mode='0777'"
+ansible dev -m file -a "path=/tmp/sunday.txt state=absent"
+ansible dev -m file -a "path=/tmp/sunday state=directory"
+ansible dev -m file -a "path=/etc/sunday.txt state=touch" -b 
+
+
+
+
+
+
+
+
+
