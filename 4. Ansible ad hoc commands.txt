@@ -59,9 +59,18 @@ ansible dev -m command -a "ls > listOfFiles.txt"        vs      ansible dev -m s
 
 
 # reboot hosts
-ansible all -a "reboot" -s
+ansible all -a "reboot" -b
 
+# create group and user 
+ansible dev -m group -a "name=web state=present" -b
+ansible dev -m user -a "name=web group=web createhome=yes" -b
 
+# change file ownership
+ansible dev -m file -a "path=/tmp/sunday.txt group=web owner=web" -b
+
+# start/stop/enable service 
+ansible dev -m yum -a "name=httpd state=present" -b
+ansible dev -m service -a "name=httpd state=started enabled=yes" -b
 
 
 
