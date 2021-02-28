@@ -1,0 +1,40 @@
+1. Create 3 node servers using AmazonLinux2 ami
+
+2. Create ansibleadmin user for Ansible engine/parent 
+
+    uderadd ansibleadmin
+    passwd ansibleadmin
+    visudo # add ansibleadmin user to the wheel group, SHIFT+G to go to end of file
+    ansibleadmin    ALL=(ALL)NOPASSWD: ALL
+
+3. Create same ansibleadmin user in ansible client nodes and provide root rights
+    
+    uderadd ansibleadmin
+    passwd ansibleadmin
+    visudo # add ansibleadmin user to the wheel group
+    ansibleadmin    ALL=(ALL)NOPASSWD: ALL              
+
+4. Check password authentication on the Ansible engine node/clients and set to yes
+    
+    vi /etc/ssh/sshd_config
+    systemctl restart sshd
+    systemctl status sshd
+
+5. Create ssh key using ssh-keygen from ansibleadmin user
+
+    sudo su ansibleadmin
+    ssh-keygen
+    cd ~/.ssh/
+    ssh-copy-id privateIPClientNode
+    #now you can ssh directly with privateIPClientNode
+    ssh privateIPClientNode
+
+6. Update /etc/ansible/hosts file
+
+    sudo vi /etc/ansible/hosts
+    # copy and paste client node private ips 
+    ansible all -m ping 
+
+
+
+
