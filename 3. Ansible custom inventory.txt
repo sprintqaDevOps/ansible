@@ -1,0 +1,19 @@
+
+mkdir ansiblefiles
+
+cp -r /etc/ansible/* ansiblefiles
+
+cd ansiblefiles/
+
+sudo vi /ansiblefiles/ansible.cfg
+
+inventory      = ./inventory
+
+ansible all -m ping 
+
+
+
+or use your inventory file without mentioning it in ansible.cfg file 
+
+ansible all -m ping -i inventory 
+
