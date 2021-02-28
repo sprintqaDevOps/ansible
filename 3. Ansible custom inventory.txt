@@ -30,6 +30,8 @@ ansible all -m ping -i inventory
 # group your nodes in the hosts/inventory file and use them accordingly
     
     ansible webservers -m ping 
+    
+    ansible webservers -m ping --list-hosts
 
     [webservers]
     IP1
