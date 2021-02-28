@@ -27,4 +27,8 @@ ansible-doc -l | grep shell
 
 /etc/ansible/ansible.cfg    >   forks : how many nodes at a time ansible executes the commands/playbooks 
 
+forks  = 1              vs      forks = 5
+
+ansible all -m shell -a "sleep 5; echo 'hello world'"
+
 
