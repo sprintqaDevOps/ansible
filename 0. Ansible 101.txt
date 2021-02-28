@@ -1,0 +1,8 @@
+1. It is open-source, therefore, free 
+2. Use existing OpenSSH
+3. No agent installation or updating
+4. Python/yaml based
+5. It runs playbooks parallelly on your nodes
+6. Larget number of predifined modules for use 
+7. You can add custom modules 
+8. Can run ad hoc commands and playbooks(group of commands/actions)

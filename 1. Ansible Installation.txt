@@ -1,0 +1,17 @@
+Ansible Installation
+
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-rhel-centos-or-fedora
+
+1. create CentOS7 ec2
+2. python --version 
+3. yum update -y
+4. get epel release 
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm 
+5. install ansible
+sudo yum install ansible
+6. ansible --version 
+7. cd /etc/ansible 
+8. ls 
+
+
+
