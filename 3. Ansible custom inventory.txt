@@ -1,4 +1,5 @@
 
+
 mkdir ansiblefiles
 
 cp -r /etc/ansible/* ansiblefiles
@@ -13,7 +14,15 @@ ansible all -m ping
 
 
 
-or use your inventory file without mentioning it in ansible.cfg file 
-
+# or use your inventory file without mentioning it in ansible.cfg file 
 ansible all -m ping -i inventory 
+
+
+# disable host_key_checking in ansible.cfg file 
+        vi ansible.cfg 
+    # set host_key_checking = False 
+
+
+
+
 
