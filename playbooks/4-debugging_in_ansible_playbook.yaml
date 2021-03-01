@@ -1,0 +1,9 @@
+- hosts: dev
+  become: yes
+  vars:
+    webserver: httpd
+    webserver_root_dir: /var/www/html
+  tasks:
+  - name: debug
+    debug:
+      msg: "web host server locations is {{ webserver_root_dir }}"

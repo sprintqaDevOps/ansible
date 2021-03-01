@@ -1,0 +1,10 @@
+- hosts: dev
+  become: yes
+  vars:
+    webserver:
+      type: httpd
+      root_dir: /var/www/html
+  tasks:
+  - name: debug var nested object
+    debug:
+      msg: "webserver is {{ webserver['type'] }} and location folder is {{ webserver.root_dir }}"
