@@ -1,0 +1,20 @@
+Static vs Dynamic IPs?
+
+/etc/ansible/hosts    : Static IP inventory
+
+https://github.com/ansible/ansible/tree/stable-2.9/contrib/inventory 
+
+Copy and Paste ec2.py and ec2.ini files to your parent ansible folder. Provide 755 permissions.
+
+https://packaging.python.org/tutorials/installing-packages/ 
+
+wget https://bootstrap.pypa.io/2.7/get-pip.py
+
+sudo yum install python-pip
+
+pip install boto
+
+
+
+
+
