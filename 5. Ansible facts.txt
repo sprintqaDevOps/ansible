@@ -18,3 +18,45 @@ ansible dev -m setup -a "filter=ansible_distribution*"
 To get user defined required facts; git version, httpd version,  db version etc… for all client managed nodes.
 
 To identify prod/nonprod/dev/qa servers.
+
+# get custom facts
+ansible all -m shell -a "/usr/sbin/httpd -version"
+
+# create facts.d directory and AnsibleParentNode
+yum install git httpd -y
+git --version
+httpd -version 
+git --version | awk '{print $3}'
+httpd -version | awk 'NR==1 {print $3}'
+vim nodesoftware.fact
+        #!/bin/bash
+        git_version=$(git --version | awk '{print $3}')
+        httpd_version=$(/usr/sbin/httpd -version | awk 'NR==1 {print $3}')
+        
+        cat << EOF
+        {   "Git_Version" : "$git_version",
+            "httpd_version" : "$httpd_version"
+        }
+        EOF
+chmod 755 nodesoftware.fact
+./nodesoftware.fact
+
+# go back to ansibleadmin user
+sudo su ansibleadmin
+cd ~/ansiblefiles
+
+# add localhost to ansible inventory by creating a new monday inventory file
+ssh-copy-id localhost
+ssh localhost 
+ansible -i monday localhost -m ping     # now you get result from running ansible adhoc commands on your local host
+
+# collect localhost info using setup module 
+ansible -i monday localhost -m setup
+ansible -i monday localhost -m setup -a "filter=ansible_local"
+
+# create same facts.d directory and nodesoftware.fact file in client nodes
+ansible all -m file -a "path=/etc/ansible/facts.d state=directory" -b
+ansible all -m copy -a "src=/etc/ansible/facts.d/nodesoftware.fact dest=/etc/ansible/facts.d/nodesoftware.fact mode='0755'" -b
+ansible all -m setup -a "filter=ansible_local"
+
+ 
