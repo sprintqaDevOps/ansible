@@ -1,0 +1,6 @@
+ansible-playbook sampleplaybook.yml
+
+ansible-playbook -C sampleplaybook.yml  # dry run
+
+ansible-playbook --syntax-check sampleplaybook.yml
+
