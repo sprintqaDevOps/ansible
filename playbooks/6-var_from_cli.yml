@@ -1,0 +1,10 @@
+# ansible-playbook playbookname.yml --extra-vars webserver=httpd
+
+- hosts: dev
+  become: yes
+  vars:
+    webserver_root_dir: /var/www/html
+  tasks:
+  - name: debug
+    debug:
+      msg: "webserver is {{ webserver }}"
