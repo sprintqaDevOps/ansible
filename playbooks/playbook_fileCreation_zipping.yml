@@ -1,0 +1,20 @@
+- name: play for file management
+  hosts: all
+  become: yes
+  tasks:
+    # create file `/tmp/hello.txt` with some content
+  - name: hello file is copied
+    copy:
+      content: "Hello here"
+      dest: /tmp/monday.txt
+  - name: hi file is copied
+    copy:
+      content: "Hi here"
+      dest: /tmp/monday2.txt
+  - name: archive hh is created
+    archive:
+      path:
+      - /tmp/monday.txt
+      - /tmp/monday2.txt
+      dest: /tmp/hh.zip
+      format: zip
