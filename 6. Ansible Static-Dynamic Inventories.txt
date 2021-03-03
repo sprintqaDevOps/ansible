@@ -66,6 +66,17 @@ ansible -i ec2.py ec2 -m ping
 
 19. create python script on VS Code.
 
-20. 
+20. run the script on ansible engine 
+
+21. install boto3 using: pip install boto3
+
+22. Finish up boto3 automation to get ec2s based on tags. 
+
+23. now run ansible cli to target specific group of ec2s from your custom inventory file.
+ansible -i custom_dynamic_inventory.py db --list-hosts 
+ansible -i custom_dynamic_inventory.py web --list-hosts
+ansible -i custom_dynamic_inventory.py all --list-hosts
+
+
 
 
