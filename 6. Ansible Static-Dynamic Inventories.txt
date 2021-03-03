@@ -1,20 +1,54 @@
 Static vs Dynamic IPs?
 
-/etc/ansible/hosts    : Static IP inventory
 
-https://github.com/ansible/ansible/tree/stable-2.9/contrib/inventory 
 
-Copy and Paste ec2.py and ec2.ini files to your parent ansible folder. Provide 755 permissions.
+Dynamic Inventory documentation:      https://docs.ansible.com/ansible/2.8/user_guide/intro_dynamic_inventory.html#inventory-script-example-aws-ec2 
+pip installation documentation:       https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install-linux.html
 
-https://packaging.python.org/tutorials/installing-packages/ 
 
-wget https://bootstrap.pypa.io/2.7/get-pip.py
+1. Download ec2.py and ec2.ini files to your ansible location.
 
-sudo yum install python-pip
+wget https://raw.githubusercontent.com/ansible/ansible/stable-2.8/contrib/inventory/ec2.py
+wget https://raw.githubusercontent.com/ansible/ansible/stable-2.8/contrib/inventory/ec2.ini
+chmod +x ec2.py
 
+2. Ensure you have pip installed
+pip --version 
+python --version
+
+3. Download pip installation package 
+cd
+curl -O https://bootstrap.pypa.io/2.7/get-pip.py
+ls
+python get-pip.py
+pip --version
+
+4. Add pip installation to your path
+ll -a
+echo $SHELL
+echo $PATH
+export PATH=/home/ansibleadmin/.local/bin:$PATH
+echo $PATH
+source ~/get-pip.py
+pip --version
+
+5. install boto
 pip install boto
 
+6. run python ec2.py script
+./ec2.py
 
+7. Add iam role to your ansible engine with full EC2 permissions
+
+8. run python script again
+./ec2.py
+
+9. set elasticache = False in ec2.ini file
+
+10. run python script and now you can see everything from your account. 
+
+11. confirm that you can ping all ec2s from your aws account with ansible cli 
+ansible -i ec2.py ec2 -m ping
 
 
 
