@@ -1,0 +1,7 @@
+- name: turn-off gather facts
+  hosts: db
+  gather_facts: no
+  tasks:
+  - name: print ansible_facts
+    debug:
+      var: ansible_facts
