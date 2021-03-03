@@ -50,5 +50,14 @@ pip install boto
 11. confirm that you can ping all ec2s from your aws account with ansible cli 
 ansible -i ec2.py ec2 -m ping
 
+12. Create another ec2 with amazon linux 2 ami and wait till it is running. 
+
+13. Now, try to ping all ec2s including the new one. It will give you permission denied error for the newly added ec2. 
+
+14. Create ami from client nodes and now create a new EC2 using this ami.
+
+15. test ansible ping again. now you should be able to ping all ec2s including the new one. 
+
+16. 
 
 
