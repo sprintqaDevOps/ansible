@@ -1,7 +1,7 @@
 - hosts: db,web
   become: yes
   vars:
-    webserver: http
+    webserver: httpd
     webserver_root_dir: /var/www/html
   tasks:
   - name: webserver is installed
@@ -17,12 +17,12 @@
       path: "{{ webserver_root_dir }}"
       state: directory
   - name: static website is deployed
+    when: deploy == 'no'
     uri:
       url: https://raw.githubusercontent.com/sprintqaDevOps/ansible/main/playbooks/index.html
       dest: "{{ webserver_root_dir }}" 
+  - name: contacts page is deployed
     when: deploy == 'no'
-  - name: login page is deployed
     uri:
       url: https://raw.githubusercontent.com/sprintqaDevOps/ansible/main/playbooks/contacts.html
       dest: "{{ webserver_root_dir }}" 
-    when: deploy == 'no'
