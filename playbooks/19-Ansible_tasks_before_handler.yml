@@ -1,0 +1,17 @@
+---  
+- name: example for handlers
+  hosts: anyHostName
+  tasks:
+  - name: task1
+    module-a:
+      attr1: val1
+  - name: task2
+    module-b:
+      attr1: val1
+    # run task3 only if task2 CHANGED 
+  - name: task3
+    module-c:
+      attr1: val1
+  - name: task4
+    module-d:
+      attr1: val1
