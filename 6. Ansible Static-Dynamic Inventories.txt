@@ -58,6 +58,14 @@ ansible -i ec2.py ec2 -m ping
 
 15. test ansible ping again. now you should be able to ping all ec2s including the new one. 
 
-16. 
+16. add Environment:web to node1 and node2 clients, and Environment:db to node3 client.
+
+17. Use python script to build your custom inventory from dynamic inventory you get from ansible cli. 
+
+18. check python location:  which python 
+
+19. create python script on VS Code.
+
+20. 
 
 
