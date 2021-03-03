@@ -17,12 +17,13 @@
       path: "{{ webserver_root_dir }}"
       state: directory
   - name: static website is deployed
-    when: deploy == 'no'
+    when: deploy == 'green'
     uri:
       url: https://raw.githubusercontent.com/sprintqaDevOps/ansible/main/playbooks/index.html
-      dest: "{{ webserver_root_dir }}" 
+      dest: "{{ webserver_root_dir }}"
   - name: contacts page is deployed
-    when: deploy == 'no'
+    when: deploy == 'green'
     uri:
       url: https://raw.githubusercontent.com/sprintqaDevOps/ansible/main/playbooks/contacts.html
-      dest: "{{ webserver_root_dir }}" 
+      dest: "{{ webserver_root_dir }}"
+
