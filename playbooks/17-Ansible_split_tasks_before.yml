@@ -20,3 +20,5 @@
     uri:
       url: https://raw.githubusercontent.com/sprintqaDevOps/ansible/main/playbooks/index.html
       dest: "{{ webserver_root_dir }}"
+
+# create tasks folder in your ansible working directory, and create httpd_installation.yml file in there. 
