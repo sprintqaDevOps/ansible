@@ -1,0 +1,19 @@
+---  
+- name: tasks after handler is used
+  hosts: anyHostName
+  tasks:
+  - name: task1
+    module-a:
+      attr1: val1
+  - name: task2
+    module-b:
+      attr1: val1
+    notify: task3
+    # run task3 only if task2 CHANGED 
+  - name: task4
+    module-d:
+      attr1: val1
+  handlers:
+  - name: task3
+    module-c:
+      attr1: val1
