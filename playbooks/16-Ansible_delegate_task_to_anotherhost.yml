@@ -1,0 +1,8 @@
+- name: play to show how to use delegate_to
+  hosts: web
+  tasks:
+  - name: string is copied into a file
+    copy:
+      content: This is a message while targeting localhost using global ansible env var {{ inventory_hostname }}
+      dest: /tmp/message.txt
+    delegate_to: localhost
