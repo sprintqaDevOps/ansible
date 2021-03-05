@@ -1,0 +1,69 @@
+Install Ansible AWX on Ubuntu 20.04
+
+Ubuntu 20.04
+At least 4GB of RAM 
+2vcpus 
+20GB free disk
+root or user with sudo
+
+Step 1: Update Ubuntu system
+  sudo apt update && sudo apt -y upgrade
+  sudo reboot
+
+Step 2: Install Ansible on Ubuntu
+  sudo apt install ansible
+  ansible --version
+
+Step 3: Install Docker and Docker Compose
+  Install basic dependencies
+  sudo apt -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+  
+  Install Docker CE on Ubuntu 20.04
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  sudo apt install docker-ce docker-ce-cli containerd.io
+  sudo usermod -aG docker $USER
+  newgrp docker
+  docker version
+  sudo systemctl start docker 
+
+Step 4: Install Docker Compose
+  sudo apt install -y curl
+  curl -s https://api.github.com/repos/docker/compose/releases/latest \
+  | grep browser_download_url \
+  | grep docker-compose-Linux-x86_64 \
+  | cut -d '"' -f 4 \
+  | wget -qi -
+  chmod +x docker-compose-Linux-x86_64
+  sudo mv docker-compose-Linux-x86_64 /usr/local/bin/docker-compose
+  docker-compose version
+
+Step 4: Install Node and NPM
+  sudo apt install -y nodejs npm
+  sudo npm install npm --global
+
+Step 5: Install Ansible AWX on Ubuntu 20.04.
+  sudo apt install python3-pip git pwgen vim
+  sudo pip3 install requests==2.14.2
+  docker-compose version
+  sudo pip3 install docker-compose==1.28.5
+   
+  sudo su -
+  git clone -b 11.2.0 https://github.com/ansible/awx.git
+  cd awx
+  cd installer
+  ansible-playbook -i inventory install.yml
+  
+  # if AWX keeps upgrading nonstop 
+      systemctl restart docker 
+      ansible-playbook -i inventory install.yml
+  
+  
+  
+
+
+
+  
+  
+  
+
