@@ -1,0 +1,7 @@
+---
+- hosts: all
+  tasks:
+  - name: Host release details
+    shell: "cat /etc/*release"
+    register: osrel
+  - debug: var=osrel
