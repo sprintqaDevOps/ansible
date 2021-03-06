@@ -1,6 +1,6 @@
 # https://jinja.palletsprojects.com/en/2.11.x/templates/#builtin-filters
 - name: jinja2 filters
-  hosts: localhosts
+  hosts: localhost
   gather_facts: no
   vars:
     git_username: devops@sprintqa.com
