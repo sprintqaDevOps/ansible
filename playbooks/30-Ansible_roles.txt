@@ -1,0 +1,20 @@
+Ansible Roles?
+
+Ansible: configuration management and deployment 
+
+Playbook reusability to avoid writing same playbooks over and over again.
+
+import_tasks? 
+  Hard to manage and reuse if you have files, templates, vars defined for your environments. 
+  
+Ansible Role bundles all external reusable tasks with dependencies like vars, handlers, files, templates and etc. 
+
+Make it easy and fast to share code and workload within teams in the company. 
+
+
+npm install mysql 
+pip install boto3
+ansible-galaxy install roleNameFromAnsibleGalaxy
+
+
+
