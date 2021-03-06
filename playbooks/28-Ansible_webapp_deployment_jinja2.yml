@@ -19,7 +19,7 @@
       state: directory
   - name: deploy index.html using j2 template
     template:
-      src: index.html.j2
+      src: 28-index.html.j2
       dest: "{{ webserver_root_dir }}/index.html"
       mode: 0775
   - name: restart nginx
