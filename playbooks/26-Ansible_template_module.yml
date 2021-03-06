@@ -1,0 +1,18 @@
+- name: copy module
+  hosts: ubuntu
+  tasks:
+  - name: report is generated on hosts 
+    copy:
+      src: ./32-file.conf
+      dest: /tmp/specs.conf
+
+
+
+
+- name: template module
+  hosts: ubuntu
+  tasks:
+  - name: report is generated on hosts 
+    template:
+      src: ./32-file.conf
+      dest: /tmp/specs.conf
