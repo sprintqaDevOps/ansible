@@ -14,8 +14,29 @@ Make it easy and fast to share code and workload within teams in the company.
 
 npm install mysql 
 pip install boto3
+
 ansible-galaxy install roleNameFromAnsibleGalaxy
 
+ansible-galaxy install -r ./requirements.yml
+
+ansible-galaxy init role_name
+
+
+1. define role location in the ansible.cf file 
+[defaults]
+roles_path = ./roles
+2. install/download roles 
+3. import with module as Task 
+tasks:
+- import_role:
+    name: nameGoesHere
+    vars: {var1:val1, ...}
+      
+      or
+hosts: all
+roles:
+- names: nameGoesHere
+  var1: val1
 
 
 roles-example/
