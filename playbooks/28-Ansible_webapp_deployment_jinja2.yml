@@ -1,0 +1,28 @@
+- hosts: ubuntu
+  become: yes
+  vars:
+    webserver: nginx
+    webserver_root_dir: /var/www/html
+  tasks:
+  - name: webserver is installed
+    package:
+      name: "{{ webserver }}"
+      state: present
+  - name: webserver is up
+    service:
+      name: "{{ webserver }}"
+      state: started
+      enabled: yes
+  - name: webserver root directory exists
+    file:
+      path: "{{ webserver_root_dir }}"
+      state: directory
+  - name: deploy index.html using j2 template
+    template:
+      src: index.html.j2
+      dest: "{{ webserver_root_dir }}/index.html"
+      mode: 0775
+  - name: restart nginx
+    service:
+      name: "{{ webserver }}"
+      state: restarted
