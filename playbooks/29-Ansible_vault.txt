@@ -1,0 +1,29 @@
+1. Create key.txt in your ansible working directory
+2. Type strong password 
+3. Edit ansible.cfg file
+vault_password_file = ./key.txt
+4. ansible-vault create password.yml 
+users:
+- name: hello
+  password: world
+5. cat password.yml
+6. ansible-vault encrypt vars/newhires.yml
+7. cat vars/newhires.yml
+8. ansible-vault view vars/newhires.yml
+9. Use encrypted files inside a playbook
+
+
+#####################################################
+
+- name: use encrypted vars
+  hosts: localhost
+  vars_files:
+  - vars/newhires.yaml
+  tasks:
+  - name: encrypted variable is printed
+    debug:
+      var: newly_hired
+
+
+10. ansible-vault decrypt vars/newhires.yml
+11. cat vars/newhires.yml
