@@ -10,8 +10,8 @@ roles:
 
 - src: geerlingguy.docker
   name: geerlingguy.docker
+  
 - src: geerlingguy.kubernetes
   name: geerlingguy.kubernetes
 
-collections:
-- newswangerd.collection_demo
+
