@@ -9,6 +9,7 @@
 # copy ssh public keys from parent node to ubuntu client
 # cd ~/.ssh
 # ssh-copy-id ansibleadmin@IP
+# add ubuntu ip to statin inventory file 
 
 ---
   - name: install packages
