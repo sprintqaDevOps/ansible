@@ -1,4 +1,4 @@
-assignment_users:
+newly_hired:
 - name: hello
   password: world123456
   role: developer
