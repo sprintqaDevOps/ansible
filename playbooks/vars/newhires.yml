@@ -1,0 +1,10 @@
+assignment_users:
+- name: hello
+  password: world123456
+  role: developer
+- name: hithere
+  password: hithere123456
+  role: devops
+- name: someone
+  password: something123456
+  role: cloud
