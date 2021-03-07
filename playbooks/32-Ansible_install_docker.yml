@@ -6,4 +6,4 @@
       name: geerlingguy.docker
     vars:
       docker_users:
-      - "{{ ansible_ssh_user }}"
+      - ansibleadmin
