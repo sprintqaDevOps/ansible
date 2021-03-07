@@ -1,5 +1,5 @@
-#- hosts: all
-- become: yes
+- hosts: db
+  become: yes
   tasks:
   - name: Install apache packages
     yum:
