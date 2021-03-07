@@ -1,0 +1,20 @@
+---
+ - name: create ec2 with sgs and tags
+   hosts: localhost
+   connection: local
+   gather_facts: false
+   tasks:
+   - name: Creating ec2 instance
+     ec2:
+      instance_type: t2.micro
+      image: your ami id
+      count: 2
+      key_name: your key name
+      region: us-east-1
+      wait: yes 
+      group_id:
+        - sg-id1
+        - sg-id2
+      instance_tags:
+        - Env: Dev
+        - Name: webapp
