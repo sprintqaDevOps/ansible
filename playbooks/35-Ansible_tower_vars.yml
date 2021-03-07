@@ -16,3 +16,9 @@
   - name: print custom var
     debug:
       msg: "{{ custom_var }}"
+
+
+#to be added to extra vars section on tower
+#custom_var: helloWorld
+#webserver: httpd
+#webserver_root_dir: /var/www/html
