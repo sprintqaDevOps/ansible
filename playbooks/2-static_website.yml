@@ -1,4 +1,4 @@
-- hosts: qa
+- hosts: all
   become: yes
   tasks:
   - name: Install apache packages
