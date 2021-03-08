@@ -1,0 +1,30 @@
+---
+ - name: get instances info
+   hosts: localhost
+   connection: local
+   gather_facts: false
+   tasks:
+   - name: Info about ec2 using ec2_instance_facts
+     ec2_instance_facts:
+      region: us-east-1
+      filters:
+       "tag:Environment": web1
+       "tag:Environment": db1
+     register: out
+   - name: print output
+     template:
+       src: ./41-csv.j2
+       dest: ec2_report.csv
+
+
+
+##########################################################
+
+# jinja2 template file in /templates in your ansible directory
+
+{% set item = 1 %}
+item,instance_id,image_id,ssh_key_name
+{% for ec2 in out.instances %}
+{{item}},{{ec2.instance_id}},{{ec2.image_id}},{{ec2.key_name}}
+{% set item = item + 1 %}
+{% endfor %}
