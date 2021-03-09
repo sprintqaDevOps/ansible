@@ -2,7 +2,7 @@
  - name: get instances info
    hosts: localhost
    connection: local
-   gather_facts: fals
+   gather_facts: false
    tasks:
    - name: use ec2_instance_facts
      ec2_instance_facts:
@@ -19,7 +19,7 @@
  - name: get instances info
    hosts: localhost
    connection: local
-   gather_facts: fals
+   gather_facts: false
    tasks:
    - name: use ec2_instance_facts
      ec2_instance_facts:
@@ -38,7 +38,7 @@
  - name: get instances info
    hosts: localhost
    connection: local
-   gather_facts: fals
+   gather_facts: false
    tasks:
    - name: use ec2_instance_facts
      ec2_instance_facts:
